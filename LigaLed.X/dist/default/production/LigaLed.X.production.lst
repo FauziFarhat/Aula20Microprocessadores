@@ -1,0 +1,617 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
+                                                                                               Mon Apr 16 17:29:21 2018
+
+Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
+     1                           	processor	18F4550
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    12                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    13                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    14  0000                     
+    15                           ; Version 1.45
+    16                           ; Generated 16/11/2017 GMT
+    17                           ; 
+    18                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    19                           ; All rights reserved.
+    20                           ; 
+    21                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    22                           ; 
+    23                           ; Redistribution and use in source and binary forms, with or without modification, are
+    24                           ; permitted provided that the following conditions are met:
+    25                           ; 
+    26                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    27                           ;        conditions and the following disclaimer.
+    28                           ; 
+    29                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    30                           ;        of conditions and the following disclaimer in the documentation and/or other
+    31                           ;        materials provided with the distribution.
+    32                           ; 
+    33                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    34                           ;        software without specific prior written permission.
+    35                           ; 
+    36                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    37                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    38                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    39                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    40                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    41                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    42                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    43                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    44                           ; 
+    45                           ; 
+    46                           ; Code-generator required, PIC18F4550 Definitions
+    47                           ; 
+    48                           ; SFR Addresses
+    49  0000                     _TRISC	set	3988
+    50  0000                     _TRISD	set	3989
+    51  0000                     _PORTD	set	3971
+    52  0000                     _RC1	set	31761
+    53  0000                     _RC0	set	31760
+    54                           
+    55                           ; #config settings
+    56                           
+    57                           	psect	cinit
+    58  007F06                     __pcinit:
+    59                           	opt stack 0
+    60  007F06                     start_initialization:
+    61                           	opt stack 0
+    62  007F06                     __initialization:
+    63                           	opt stack 0
+    64                           
+    65                           ; Clear objects allocated to COMRAM (2 bytes)
+    66  007F06  6A02               	clrf	(__pbssCOMRAM+1)& (0+255),c
+    67  007F08  6A01               	clrf	__pbssCOMRAM& (0+255),c
+    68  007F0A                     end_of_initialization:
+    69                           	opt stack 0
+    70  007F0A                     __end_of__initialization:
+    71                           	opt stack 0
+    72  007F0A  0E00               	movlw	low (__Lmediumconst shr (0+16))
+    73  007F0C  6EF8               	movwf	tblptru,c
+    74  007F0E  0100               	movlb	0
+    75  007F10  EFA9  F03F         	goto	_main	;jump to C main() function
+    76                           tblptru	equ	0xFF8
+    77                           
+    78                           	psect	bssCOMRAM
+    79  000001                     __pbssCOMRAM:
+    80                           	opt stack 0
+    81  000001                     _cnt:
+    82                           	opt stack 0
+    83  000001                     	ds	2
+    84                           tblptru	equ	0xFF8
+    85                           
+    86                           	psect	cstackCOMRAM
+    87  000003                     __pcstackCOMRAM:
+    88                           	opt stack 0
+    89  000003                     ??_mostrar:
+    90  000003                     
+    91                           ; 1 bytes @ 0x0
+    92  000003                     	ds	2
+    93  000005                     tblptru	equ	0xFF8
+    94                           
+    95                           ; 1 bytes @ 0x2
+    96 ;;
+    97 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    98 ;;
+    99 ;; *************** function _main *****************
+   100 ;; Defined at:
+   101 ;;		line 58 in file "Displayay.c"
+   102 ;; Parameters:    Size  Location     Type
+   103 ;;		None
+   104 ;; Auto vars:     Size  Location     Type
+   105 ;;		None
+   106 ;; Return value:  Size  Location     Type
+   107 ;;                  1    wreg      void 
+   108 ;; Registers used:
+   109 ;;		wreg, status,2, status,0, cstack
+   110 ;; Tracked objects:
+   111 ;;		On entry : 0/0
+   112 ;;		On exit  : 0/0
+   113 ;;		Unchanged: 0/0
+   114 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   115 ;;      Params:         0       0       0       0       0       0       0       0       0
+   116 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   117 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   118 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   119 ;;Total ram usage:        0 bytes
+   120 ;; Hardware stack levels required when called:    1
+   121 ;; This function calls:
+   122 ;;		_decrementa
+   123 ;;		_incrementa
+   124 ;;		_mostrar
+   125 ;; This function is called by:
+   126 ;;		Startup code after reset
+   127 ;; This function uses a non-reentrant model
+   128 ;;
+   129                           
+   130                           	psect	text0
+   131  007F52                     __ptext0:
+   132                           	opt stack 0
+   133  007F52                     _main:
+   134                           	opt stack 30
+   135                           
+   136                           ;Displayay.c: 60: TRISD=0b00000000;
+   137                           
+   138                           ;incstack = 0
+   139  007F52  0E00               	movlw	0
+   140  007F54  6E95               	movwf	3989,c	;volatile
+   141                           
+   142                           ;Displayay.c: 61: TRISC=0b00000011;
+   143  007F56  0E03               	movlw	3
+   144  007F58  6E94               	movwf	3988,c	;volatile
+   145  007F5A                     
+   146                           ;Displayay.c: 64: mostrar();
+   147  007F5A  ECB9  F03F         	call	_mostrar	;wreg free
+   148                           
+   149                           ;Displayay.c: 65: if (RC0==1){
+   150  007F5E  A082               	btfss	3970,0,c	;volatile
+   151  007F60  D003               	goto	l49
+   152                           
+   153                           ;Displayay.c: 66: incrementa();
+   154  007F62  EC99  F03F         	call	_incrementa	;wreg free
+   155                           
+   156                           ;Displayay.c: 67: }
+   157  007F66  D7F9               	goto	l48
+   158  007F68                     l49:
+   159                           
+   160                           ;Displayay.c: 68: else if(RC1==1){
+   161  007F68  A282               	btfss	3970,1,c	;volatile
+   162  007F6A  D7F7               	goto	l48
+   163                           
+   164                           ;Displayay.c: 69: decrementa();
+   165  007F6C  EC8A  F03F         	call	_decrementa	;wreg free
+   166  007F70  D7F4               	goto	l48
+   167  007F72                     __end_of_main:
+   168                           	opt stack 0
+   169                           tblptru	equ	0xFF8
+   170                           
+   171 ;; *************** function _mostrar *****************
+   172 ;; Defined at:
+   173 ;;		line 32 in file "Displayay.c"
+   174 ;; Parameters:    Size  Location     Type
+   175 ;;		None
+   176 ;; Auto vars:     Size  Location     Type
+   177 ;;		None
+   178 ;; Return value:  Size  Location     Type
+   179 ;;                  1    wreg      void 
+   180 ;; Registers used:
+   181 ;;		wreg, status,2, status,0
+   182 ;; Tracked objects:
+   183 ;;		On entry : 0/0
+   184 ;;		On exit  : 0/0
+   185 ;;		Unchanged: 0/0
+   186 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   187 ;;      Params:         0       0       0       0       0       0       0       0       0
+   188 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   189 ;;      Temps:          2       0       0       0       0       0       0       0       0
+   190 ;;      Totals:         2       0       0       0       0       0       0       0       0
+   191 ;;Total ram usage:        2 bytes
+   192 ;; Hardware stack levels used:    1
+   193 ;; This function calls:
+   194 ;;		Nothing
+   195 ;; This function is called by:
+   196 ;;		_main
+   197 ;; This function uses a non-reentrant model
+   198 ;;
+   199                           
+   200                           	psect	text1
+   201  007F72                     __ptext1:
+   202                           	opt stack 0
+   203  007F72                     _mostrar:
+   204                           	opt stack 30
+   205                           
+   206                           ;Displayay.c: 33: switch (cnt){
+   207                           
+   208                           ;incstack = 0
+   209  007F72  D01E               	goto	l31
+   210  007F74  0E3F               	movlw	63
+   211  007F76  6E83               	movwf	3971,c	;volatile
+   212                           
+   213                           ;Displayay.c: 35: break;
+   214  007F78  0012               	return	
+   215  007F7A  0E06               	movlw	6
+   216  007F7C  6E83               	movwf	3971,c	;volatile
+   217                           
+   218                           ;Displayay.c: 37: break;
+   219  007F7E  0012               	return	
+   220  007F80  0E5B               	movlw	91
+   221  007F82  6E83               	movwf	3971,c	;volatile
+   222                           
+   223                           ;Displayay.c: 39: break;
+   224  007F84  0012               	return	
+   225  007F86  0E4F               	movlw	79
+   226  007F88  6E83               	movwf	3971,c	;volatile
+   227                           
+   228                           ;Displayay.c: 41: break;
+   229  007F8A  0012               	return	
+   230  007F8C  0E66               	movlw	102
+   231  007F8E  6E83               	movwf	3971,c	;volatile
+   232                           
+   233                           ;Displayay.c: 43: break;
+   234  007F90  0012               	return	
+   235  007F92  0E6D               	movlw	109
+   236  007F94  6E83               	movwf	3971,c	;volatile
+   237                           
+   238                           ;Displayay.c: 45: break;
+   239  007F96  0012               	return	
+   240  007F98  0E7D               	movlw	125
+   241  007F9A  6E83               	movwf	3971,c	;volatile
+   242                           
+   243                           ;Displayay.c: 47: break;
+   244  007F9C  0012               	return	
+   245  007F9E  0E07               	movlw	7
+   246  007FA0  6E83               	movwf	3971,c	;volatile
+   247                           
+   248                           ;Displayay.c: 49: break;
+   249  007FA2  0012               	return	
+   250  007FA4  0E7F               	movlw	127
+   251  007FA6  6E83               	movwf	3971,c	;volatile
+   252                           
+   253                           ;Displayay.c: 51: break;
+   254  007FA8  0012               	return	
+   255  007FAA  0E6F               	movlw	111
+   256  007FAC  6E83               	movwf	3971,c	;volatile
+   257                           
+   258                           ;Displayay.c: 54: }
+   259                           
+   260                           ;Displayay.c: 53: break;
+   261  007FAE  0012               	return	
+   262  007FB0                     l31:
+   263  007FB0  C001  F003         	movff	_cnt,??_mostrar
+   264  007FB4  C002  F004         	movff	_cnt+1,??_mostrar+1
+   265                           
+   266                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   267                           ; Switch size 1, requested type "space"
+   268                           ; Number of cases is 1, Range of values is 0 to 0
+   269                           ; switch strategies available:
+   270                           ; Name         Instructions Cycles
+   271                           ; simple_byte            4     3 (average)
+   272                           ;	Chosen strategy is simple_byte
+   273  007FB8  5004               	movf	??_mostrar+1,w,c
+   274  007FBA  0A00               	xorlw	0	; case 0
+   275  007FBC  A4D8               	btfss	status,2,c
+   276  007FBE  0012               	return	
+   277                           
+   278                           ; Switch size 1, requested type "space"
+   279                           ; Number of cases is 10, Range of values is 0 to 9
+   280                           ; switch strategies available:
+   281                           ; Name         Instructions Cycles
+   282                           ; simple_byte           31    16 (average)
+   283                           ;	Chosen strategy is simple_byte
+   284  007FC0  5003               	movf	??_mostrar,w,c
+   285  007FC2  0A00               	xorlw	0	; case 0
+   286  007FC4  B4D8               	btfsc	status,2,c
+   287  007FC6  D7D6               	goto	l32
+   288  007FC8  0A01               	xorlw	1	; case 1
+   289  007FCA  B4D8               	btfsc	status,2,c
+   290  007FCC  D7D6               	goto	l34
+   291  007FCE  0A03               	xorlw	3	; case 2
+   292  007FD0  B4D8               	btfsc	status,2,c
+   293  007FD2  D7D6               	goto	l35
+   294  007FD4  0A01               	xorlw	1	; case 3
+   295  007FD6  B4D8               	btfsc	status,2,c
+   296  007FD8  D7D6               	goto	l36
+   297  007FDA  0A07               	xorlw	7	; case 4
+   298  007FDC  B4D8               	btfsc	status,2,c
+   299  007FDE  D7D6               	goto	l37
+   300  007FE0  0A01               	xorlw	1	; case 5
+   301  007FE2  B4D8               	btfsc	status,2,c
+   302  007FE4  D7D6               	goto	l38
+   303  007FE6  0A03               	xorlw	3	; case 6
+   304  007FE8  B4D8               	btfsc	status,2,c
+   305  007FEA  D7D6               	goto	l39
+   306  007FEC  0A01               	xorlw	1	; case 7
+   307  007FEE  B4D8               	btfsc	status,2,c
+   308  007FF0  D7D6               	goto	l40
+   309  007FF2  0A0F               	xorlw	15	; case 8
+   310  007FF4  B4D8               	btfsc	status,2,c
+   311  007FF6  D7D6               	goto	l41
+   312  007FF8  0A01               	xorlw	1	; case 9
+   313  007FFA  A4D8               	btfss	status,2,c
+   314  007FFC  0012               	return	
+   315  007FFE  D7D5               	goto	l42
+   316  008000                     __end_of_mostrar:
+   317                           	opt stack 0
+   318                           tblptru	equ	0xFF8
+   319                           status	equ	0xFD8
+   320                           
+   321 ;; *************** function _incrementa *****************
+   322 ;; Defined at:
+   323 ;;		line 12 in file "Displayay.c"
+   324 ;; Parameters:    Size  Location     Type
+   325 ;;		None
+   326 ;; Auto vars:     Size  Location     Type
+   327 ;;		None
+   328 ;; Return value:  Size  Location     Type
+   329 ;;                  1    wreg      void 
+   330 ;; Registers used:
+   331 ;;		wreg, status,2, status,0
+   332 ;; Tracked objects:
+   333 ;;		On entry : 0/0
+   334 ;;		On exit  : 0/0
+   335 ;;		Unchanged: 0/0
+   336 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   337 ;;      Params:         0       0       0       0       0       0       0       0       0
+   338 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   339 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   340 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   341 ;;Total ram usage:        0 bytes
+   342 ;; Hardware stack levels used:    1
+   343 ;; This function calls:
+   344 ;;		Nothing
+   345 ;; This function is called by:
+   346 ;;		_main
+   347 ;; This function uses a non-reentrant model
+   348 ;;
+   349                           
+   350                           	psect	text2
+   351  007F32                     __ptext2:
+   352                           	opt stack 0
+   353  007F32                     _incrementa:
+   354                           	opt stack 30
+   355                           
+   356                           ;Displayay.c: 13: if(RC0==1) {
+   357                           
+   358                           ;incstack = 0
+   359  007F32  A082               	btfss	3970,0,c	;volatile
+   360  007F34  0012               	return	
+   361                           
+   362                           ;Displayay.c: 14: if (cnt<9) {
+   363  007F36  BE02               	btfsc	_cnt+1,7,c
+   364  007F38  D006               	goto	u20
+   365  007F3A  5002               	movf	_cnt+1,w,c
+   366  007F3C  E109               	bnz	l20
+   367  007F3E  0E09               	movlw	9
+   368  007F40  5C01               	subwf	_cnt,w,c
+   369  007F42  B0D8               	btfsc	status,0,c
+   370  007F44  0012               	return	
+   371  007F46                     u20:
+   372                           
+   373                           ;Displayay.c: 15: while (RC0 == 1);
+   374  007F46  B082               	btfsc	3970,0,c	;volatile
+   375  007F48  D7FE               	goto	u20
+   376                           
+   377                           ;Displayay.c: 16: cnt++;
+   378  007F4A  4A01               	infsnz	_cnt,f,c
+   379  007F4C  2A02               	incf	_cnt+1,f,c
+   380  007F4E  0012               	return	
+   381  007F50                     l20:
+   382  007F50  0012               	return		;funcret
+   383  007F52                     __end_of_incrementa:
+   384                           	opt stack 0
+   385                           tblptru	equ	0xFF8
+   386                           status	equ	0xFD8
+   387                           
+   388 ;; *************** function _decrementa *****************
+   389 ;; Defined at:
+   390 ;;		line 22 in file "Displayay.c"
+   391 ;; Parameters:    Size  Location     Type
+   392 ;;		None
+   393 ;; Auto vars:     Size  Location     Type
+   394 ;;		None
+   395 ;; Return value:  Size  Location     Type
+   396 ;;                  1    wreg      void 
+   397 ;; Registers used:
+   398 ;;		wreg, status,2, status,0
+   399 ;; Tracked objects:
+   400 ;;		On entry : 0/0
+   401 ;;		On exit  : 0/0
+   402 ;;		Unchanged: 0/0
+   403 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   404 ;;      Params:         0       0       0       0       0       0       0       0       0
+   405 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   406 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   407 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   408 ;;Total ram usage:        0 bytes
+   409 ;; Hardware stack levels used:    1
+   410 ;; This function calls:
+   411 ;;		Nothing
+   412 ;; This function is called by:
+   413 ;;		_main
+   414 ;; This function uses a non-reentrant model
+   415 ;;
+   416                           
+   417                           	psect	text3
+   418  007F14                     __ptext3:
+   419                           	opt stack 0
+   420  007F14                     _decrementa:
+   421                           	opt stack 30
+   422                           
+   423                           ;Displayay.c: 23: if(RC1==1){
+   424                           
+   425                           ;incstack = 0
+   426  007F14  A282               	btfss	3970,1,c	;volatile
+   427  007F16  0012               	return	
+   428                           
+   429                           ;Displayay.c: 24: if(cnt>0){
+   430  007F18  BE02               	btfsc	_cnt+1,7,c
+   431  007F1A  0012               	return	
+   432  007F1C  5002               	movf	_cnt+1,w,c
+   433  007F1E  E103               	bnz	l25
+   434  007F20  0401               	decf	_cnt,w,c
+   435  007F22  A0D8               	btfss	status,0,c
+   436  007F24  0012               	return	
+   437  007F26                     u50:
+   438  007F26                     l25:
+   439  007F26  B282               	btfsc	3970,1,c	;volatile
+   440  007F28  D7FE               	goto	u50
+   441                           
+   442                           ;Displayay.c: 26: cnt--;
+   443  007F2A  0601               	decf	_cnt,f,c
+   444  007F2C  A0D8               	btfss	status,0,c
+   445  007F2E  0602               	decf	_cnt+1,f,c
+   446  007F30  0012               	return	
+   447  007F32                     __end_of_decrementa:
+   448                           	opt stack 0
+   449  0000                     tblptru	equ	0xFF8
+   450                           status	equ	0xFD8
+   451                           tblptru	equ	0xFF8
+   452                           status	equ	0xFD8
+   453                           
+   454                           	psect	rparam
+   455  0000                     tblptru	equ	0xFF8
+   456                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         2
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95      2       4
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    _main->_mostrar
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0       0
+                         _decrementa
+                         _incrementa
+                            _mostrar
+ ---------------------------------------------------------------------------------
+ (1) _mostrar                                              2     2      0       0
+                                              0 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _incrementa                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _decrementa                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _decrementa
+   _incrementa
+   _mostrar
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             7FF      0       0      21        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F      2       4       1        4.2%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0       4      20        0.0%
+DATA                 0      0       4       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
+Symbol Table                                                                                   Mon Apr 16 17:29:21 2018
+
+                     l20 7F50                       l31 7FB0                       l40 7F9E  
+                     l32 7F74                       l25 7F26                       l41 7FA4  
+                     l42 7FAA                       l34 7F7A                       l35 7F80  
+                     l36 7F86                       l37 7F8C                       l38 7F92  
+                     l39 7F98                       l48 7F5A                       l49 7F68  
+                     u20 7F46                       u50 7F26                      _RC0 007C10  
+                    _RC1 007C11                      _cnt 0001                     _main 7F52  
+                   start 0000             ___param_bank 000000                    ?_main 0003  
+                  _PORTD 000F83                    _TRISC 000F94                    _TRISD 000F95  
+        __end_of_mostrar 8000                    status 000FD8          __initialization 7F06  
+           __end_of_main 7F72                   ??_main 0005            __activetblptr 000002  
+                 tblptru 000FF8                ??_mostrar 0003               __accesstop 0060  
+__end_of__initialization 7F0A            ___rparam_used 000001           __pcstackCOMRAM 0003  
+             _decrementa 7F14                  __Hparam 0000                  __Lparam 0000  
+             _incrementa 7F32                  __pcinit 7F06                  __ramtop 0800  
+                __ptext0 7F52                  __ptext1 7F72                  __ptext2 7F32  
+                __ptext3 7F14                  _mostrar 7F72     end_of_initialization 7F0A  
+          __Lmediumconst 0000              ?_decrementa 0003              ?_incrementa 0003  
+    __size_of_decrementa 001E      start_initialization 7F06              __pbssCOMRAM 0001  
+    __size_of_incrementa 0020                 ?_mostrar 0003             ??_decrementa 0003  
+     __end_of_decrementa 7F32                 __Hrparam 0000                 __Lrparam 0000  
+           ??_incrementa 0003         __size_of_mostrar 008E       __end_of_incrementa 7F52  
+          __size_of_main 0020  
