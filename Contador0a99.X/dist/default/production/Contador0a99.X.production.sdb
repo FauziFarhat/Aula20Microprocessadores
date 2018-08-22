@@ -1,0 +1,116 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"11 C:\Users\Fauzi\MPLABXProjects\Contador0a99.X\Contador0a99.c
+[v _delay delay `(v  1 e 1 0 ]
+"16
+[v _delay_mx delay_mx `(v  1 e 1 0 ]
+"20
+[v _incrementa incrementa `(v  1 e 1 0 ]
+"29
+[v _mostrar mostrar `(v  1 e 1 0 ]
+"155
+[v _main main `(v  1 e 1 0 ]
+"2703 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f4550.h
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"3845
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"3999
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"9895
+[v _RC0 RC0 `VEb  1 e 0 @31760 ]
+"9897
+[v _RC1 RC1 `VEb  1 e 0 @31761 ]
+"9905
+[v _RC2 RC2 `VEb  1 e 0 @31762 ]
+"9907
+[v _RC4 RC4 `VEb  1 e 0 @31764 ]
+"9909
+[v _RC5 RC5 `VEb  1 e 0 @31765 ]
+"9911
+[v _RC6 RC6 `VEb  1 e 0 @31766 ]
+"10 C:\Users\Fauzi\MPLABXProjects\Contador0a99.X\Contador0a99.c
+[v _cnt cnt `i  1 e 2 0 ]
+[v _dezena dezena `i  1 e 2 0 ]
+[v _unidade unidade `i  1 e 2 0 ]
+[v _centena centena `i  1 e 2 0 ]
+[v _milhar milhar `i  1 e 2 0 ]
+"155
+[v _main main `(v  1 e 1 0 ]
+{
+"168
+} 0
+"29
+[v _mostrar mostrar `(v  1 e 1 0 ]
+{
+"151
+} 0
+"16
+[v _delay_mx delay_mx `(v  1 e 1 0 ]
+{
+"17
+[v delay_mx@x x `l  1 a 4 0 ]
+"19
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"8
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+"35
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"8
+[v ___awdiv@dividend dividend `i  1 p 2 0 ]
+[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+"42
+} 0
+"20 C:\Users\Fauzi\MPLABXProjects\Contador0a99.X\Contador0a99.c
+[v _incrementa incrementa `(v  1 e 1 0 ]
+{
+"27
+} 0
+"11
+[v _delay delay `(v  1 e 1 0 ]
+{
+"12
+[v delay@x x `l  1 a 4 0 ]
+"15
+} 0
