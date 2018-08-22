@@ -1,0 +1,71 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"11 C:\Users\Fauzi\MPLABXProjects\Aula20.X\newmain.c
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+"28
+[v _main main `(v  1 e 1 0 ]
+"2703 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f4550.h
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"3999
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"8144
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"8151
+[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
+"9841
+[v _PSA PSA `VEb  1 e 0 @32427 ]
+"9895
+[v _RC0 RC0 `VEb  1 e 0 @31760 ]
+"9897
+[v _RC1 RC1 `VEb  1 e 0 @31761 ]
+"10109
+[v _T08BIT T08BIT `VEb  1 e 0 @32430 ]
+"10113
+[v _T0CS T0CS `VEb  1 e 0 @32429 ]
+"10175
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
+"10179
+[v _TMR0ON TMR0ON `VEb  1 e 0 @32431 ]
+"28 C:\Users\Fauzi\MPLABXProjects\Aula20.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+{
+"33
+[v main@duty duty `i  1 a 2 11 ]
+"31
+[v main@T T `i  1 a 2 9 ]
+"30
+[v main@f f `i  1 a 2 7 ]
+"67
+} 0
+"11
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+{
+"13
+[v delay_ms@x x `i  1 a 2 3 ]
+"11
+[v delay_ms@tempo tempo `i  1 p 2 0 ]
+"25
+} 0
